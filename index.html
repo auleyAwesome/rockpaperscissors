@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+
+<script>
+    function getComputerChoice() {
+        let randInt = Math.random();
+        if (randInt <= 0.33) {
+            return "rock";
+        }
+        else if(randInt <= 0.66) {
+            return "paper";
+        }
+        else {
+            return "scissors";
+        }
+    }
+
+    function getHumanChoice() {
+        let userChoice = prompt("Please enter rock, paper, or scissors:");
+        while (userChoice.toLowerCase() !== "rock" &&
+        userChoice.toLowerCase() !== "paper" &&
+        userChoice.toLowerCase() !== "scissors") {
+            userChoice = prompt("Wrong choice! Enter rock, paper, or scissors:");
+        }
+        return userChoice.toLowerCase();
+    }
+
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice === computerChoice) {
+            return "It's a tie!"
+        }
+        else if (humanChoice === "paper" && computerChoice === "rock") {
+            return "You win!"
+
+        }
+        else if (humanChoice === "rock" && computerChoice === "scissors") {
+            return "You win!"
+        }
+        else if (humanChoice === "scissors" && computerChoice === "paper") {
+            return "You win!"
+        }
+        else {
+            return "Computer wins!"
+        }
+    }
+
+    function playGame() {
+        let humanScore = 0;
+        let computerScore = 0;
+        for (let i = 0; i < 5; i++) {
+            let roundResult = playRound(getHumanChoice(),getComputerChoice());
+            if (roundResult.toLowerCase() === "you win!") {
+                humanScore ++;
+            }
+            else if (roundResult.toLowerCase() === "computer wins!") {
+                computerScore ++;
+            }
+        }
+        if (humanScore > computerScore) {
+
+        }
+    }
+
+    console.log(playRound(getHumanChoice(), getComputerChoice()));
+</script>
+</body>
+</html>
