@@ -63,11 +63,18 @@
             }
         }
         if (humanScore > computerScore) {
-
+            console.log("You win! Congratulations!");
         }
+        else if (humanScore === computerScore) {
+            console.log("It's a tie!");
+        }
+        else {
+            console.log("You lose! Better luck next time!");
+        }
+        return "Game over!";
     }
 
-    console.log(playRound(getHumanChoice(), getComputerChoice()));
+    console.log(playGame());
 </script>
 </body>
 </html>
